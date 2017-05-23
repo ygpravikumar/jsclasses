@@ -53,7 +53,15 @@ VariablesClass.prototype.setVariable = function (name, value) {
     this.updatedvars[name] = value;
 };
 
+// Getter for variables
+VariablesClass.prototype.getUpdatedLocalVariable = function (name) {
+    if(name in this.updatedvars)
+        return this.updatedvars[name];
+    else 
+        return this.dbvars[name];
+};
+
 // Clear all updated data method
 VariablesClass.prototype.resetVariables = function () {
-    this.updatedvars = [];
+    this.updatedvars = {};
 };
